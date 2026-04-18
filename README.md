@@ -8,24 +8,24 @@ It also separates counts into Left → Right and Right → Left.***
 **Features**
 
 
-**Background subtraction (MOG2)
+*Background subtraction (MOG2)
 Vehicle detection using contours
 Counting line crossing detection
 Direction-based counting
 Live bounding boxes + center points
-Final report after video ends**
+Final report after video ends*
 
 
 ***How It Works***
 
 
-**Load video using OpenCV
+*Load video using OpenCV
 Apply background subtraction
 Detect contours (moving objects)
 Filter by area (ignore noise)
 Track object center
 Count when crossing pink line
-Split count by direction**
+Split count by direction*
 
 
 ***Code For Example:***
@@ -56,24 +56,27 @@ import numpy as np**
 **Counters**
 
 
-**left_count = 0
+*left_count = 0
 right_count = 0
 crossed_pink = set()
-frame_num = 0**
+frame_num = 0*
 
 
 ***Background subtractor***
 
 
-**fgbg = cv2.createBackgroundSubtractorMOG2(
+*fgbg = cv2.createBackgroundSubtractorMOG2(
     history=500,
     varThreshold=50,
     detectShadows=True
 )
-print("Processing... Press 'n' to stop")**
+print("Processing... Press 'n' to stop")*
 
-**while cap.isOpened():
-    ret, frame = cap.read()
+
+***while cap.isOpened():***
+
+
+   *ret, frame = cap.read()
     if not ret:
         break   
     frame = cv2.resize(frame, (new_width, new_height))
@@ -85,13 +88,13 @@ print("Processing... Press 'n' to stop")**
         cv2.RETR_EXTERNAL,
         cv2.CHAIN_APPROX_SIMPLE
     )
-    pink_color_bgr = (251, 0, 133)**
+    pink_color_bgr = (251, 0, 133)*
   
     
   ***Pink line***
 
     
-  **cv2.line(frame, (0, pink_line_y),
+  *cv2.line(frame, (0, pink_line_y),
              (new_width, pink_line_y),
              pink_color_bgr, 2)
     cv2.putText(frame,
@@ -99,13 +102,13 @@ print("Processing... Press 'n' to stop")**
                 (10, pink_line_y - 5),
                 cv2.FONT_HERSHEY_SIMPLEX,
                 0.4,
-                pink_color_bgr,1)**
+                pink_color_bgr,1)*
 
                 
 ***for contour in contours:***
 
 
-**area = cv2.contourArea(contour)
+*area = cv2.contourArea(contour)
         if 800 < area < 8000:
             x, y, w, h = cv2.boundingRect(contour)
             center_x = x + w // 2
@@ -119,13 +122,13 @@ print("Processing... Press 'n' to stop")**
             cv2.circle(frame,
                        (center_x, center_y),
                        3,
-                       (0, 0, 255),-1)**
+                       (0, 0, 255),-1)*
 
                        
 ***Check crossing***
 
 
-**if abs(center_y - pink_line_y) < 10:
+*if abs(center_y - pink_line_y) < 10:
      if car_id not in crossed_pink:
           crossed_pink.add(car_id)
               if center_x < new_width // 2:
@@ -142,13 +145,13 @@ print("Processing... Press 'n' to stop")**
                                 (center_x - 30, center_y - 15),
                                 cv2.FONT_HERSHEY_SIMPLEX,
                                 0.4,
-                                pink_color_bgr,1)**
+                                pink_color_bgr,1)*
 
                                 
 **Display counts**
 
 
-   **cv2.rectangle(frame, (5, 5), (200, 80), (0, 0, 0), -1)
+   *cv2.rectangle(frame, (5, 5), (200, 80), (0, 0, 0), -1)
     cv2.rectangle(frame, (5, 5), (200, 80), pink_color_bgr, 1)
     cv2.putText(frame,
                 f"LEFT -> RIGHT: {left_count}",
@@ -175,10 +178,10 @@ print("Processing... Press 'n' to stop")**
     if cv2.waitKey(1) & 0xFF == ord('n'):
         break
 cap.release()
-cv2.destroyAllWindows()**
+cv2.destroyAllWindows()*
 
 
-***print("\n" + "="*40
+****print("\n" + "="*40
 print("FINAL REPORT")
 print("="*40)
 print(f"Left to Right: {left_count}")
@@ -190,23 +193,20 @@ print("="*40)*****
 ***How to Run***
 
 
-**pip install opencv-python numpy
-python main.py**
-
 
 ***Output***
 
 
-**Bounding box around vehicles
+*Bounding box around vehicles
 Pink counting line
 Direction based counting
-Final console report**
+Final console report*
 
 
 ***Example Logic***
 
 
-**LEFT SIDE   |   RIGHT SIDE**
+*LEFT SIDE   |   RIGHT SIDE*
 
 
 ------------|--------------
@@ -338,89 +338,89 @@ Final console report**
 # No2) Vehicle Counting and Detecting (Part 2 - YOLOv8).
 
 
-**This project detects and counts vehicles using YOLOv8.
-Vehicles are counted when they cross a horizontal line.**
-
+*This project detects and counts vehicles using YOLOv8.
+Vehicles are counted when they cross a horizontal line.*
+    
 
 ***Features***
 
 
-**YOLOv8 vehicle detection
+*YOLOv8 vehicle detection
 Line-crossing counting
 Unique car ID tracking
 Count only once per vehicle
 Live bounding boxes
-Total count display**
+Total count display*
 
 
 ***Code For Example:***
 
 
-**import cv2
+*import cv2
 from ultralytics import YOLO
 model = YOLO('yolov8n.pt')
 cap = cv2.VideoCapture(r"A:\computer_Vision\2011.mp4")
 LINE_Y = 254
 counted = set()              `counted cars`
-current_crossing = set()**   `currently crossing cars`
+current_crossing = set()*   `currently crossing cars`
 
 
 ***while cap.isOpened():***
 
 
-  **ret, frame = cap.read()
+  *ret, frame = cap.read()
     if not ret:
         break  
   frame = cv2.resize(frame, (500, 500))
     results = model(frame, conf=0.3)
-    current_frame_cars = set()**
+    current_frame_cars = set()*
 
     
   ***if results[0].boxes is not None:***
         
         
-  **for box in results[0].boxes.xywh.cpu().numpy():
+  *for box in results[0].boxes.xywh.cpu().numpy():
             x, y, w, h = box
             x1, y1 = int(x-w/2), int(y-h/2)
-            x2, y2 = int(x+w/2), int(y+h/2)**
+            x2, y2 = int(x+w/2), int(y+h/2)*
 
             
 ***Stable ID:***
 
 
-**car_id = f"{int(x/20)}_{int(y/20)}"
-current_frame_cars.add(car_id)**
+*car_id = f"{int(x/20)}_{int(y/20)}"
+current_frame_cars.add(car_id)*
 
 
 ***# Line crossing check:***
 
 
-**if abs(y - LINE_Y) < 15:
+*if abs(y - LINE_Y) < 15:
   if car_id not in counted:
   counted.add(car_id)
   current_crossing.add(car_id)
 else:
       if car_id in current_crossing:
-                    current_crossing.remove(car_id)**
+                    current_crossing.remove(car_id)*
                     
             
 ***Color selection:***
 
 
-**if car_id in counted:
+*if car_id in counted:
 color = (0, 0, 255)  # red counted
 else:
 color = (0, 255, 0)  # green not counted          
 cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
 cv2.putText(frame, str(car_id), (x1, y1-5),
 cv2.FONT_HERSHEY_SIMPLEX, 0.4,
-(255,255,255), 1)**
+(255,255,255), 1)*
 
     
 ***remove disappeared cars:***
 
 
-**for c in list(current_crossing):
+*for c in list(current_crossing):
         if c not in current_frame_cars:
             current_crossing.remove(c)  
   cv2.line(frame, (0, LINE_Y), (500, LINE_Y), (0, 255, 0), 2)
@@ -435,10 +435,10 @@ cv2.FONT_HERSHEY_SIMPLEX, 0.4,
         if cv2.waitKey(1) & 0xFF == ord('n'):
         break
 cap.release()
-cv2.destroyAllWindows()**
+cv2.destroyAllWindows()*
 
 
-*print(f"TOTAL: {len(counted)}")*
+**print(f"TOTAL: {len(counted)}")**
 
 
 
@@ -526,46 +526,46 @@ cv2.destroyAllWindows()**
 ***This project tracks vehicles using YOLOv8 and counts them using two horizontal lines:***
 
 
-**Red line → Going Down**
-**Blue line → Going Up**
+*Red line → Going Down*
+*Blue line → Going Up*
 
 
-*Each vehicle is assigned a unique ID and counted once.*
+**Each vehicle is assigned a unique ID and counted once.**
 
 
 ***Features***
 
 
-**YOLOv8 detection
+*YOLOv8 detection
 Vehicle ID tracking
 Two-line counting system
 Up / Down direction detection
 Bounding boxes + IDs
-Final summary output**
+Final summary output*
 
 
 ***Code For Example:***
 
 
-**import cv2
+*import cv2
 import pandas as pd
 from ultralytics import YOLO
 import math
 model = YOLO('yolov8n.pt')
-cap = cv2.VideoCapture(r"A:\computer_Vision\2011.mp4")**
+cap = cv2.VideoCapture(r"A:\computer_Vision\2011.mp4")*
 
 
 ***Store car positions for tracking***
 
 
-**car_tracker = {}
-next_id = 0**
+*car_tracker = {}
+next_id = 0*
 
 
 ***Counted cars:***
 
 
-**down_counted = set()
+*down_counted = set()
 up_counted = set()
 frame_count = 0
 while True:
@@ -586,30 +586,31 @@ while True:
             x1, y1 = int(x - w/2), int(y - h/2)
             x2, y2 = int(x + w/2), int(y + h/2)
             cx = int(x)
-            cy = int(y)**
+            cy = int(y)*
             
             
 ***Find existing car or assign new ID***
 
 
-**car_id = None
+*car_id = None
 for cid, (px, py) in car_tracker.items():
 if math.hypot(cx - px, cy - py) < 50:
   car_id = cid
-      break**
+      break*
             
   ***if car_id is None:***
 
   
-**car_id = next_id
+*car_id = next_id
   next_id += 1
   car_tracker[car_id] = (cx, cy)
-  current_cars.append(car_id)**
+  current_cars.append(car_id)*
+  
             
 ***Check line crossing:***
 
 
-  **if abs(cy - red_line_y) < 10:
+  *if abs(cy - red_line_y) < 10:
     if car_id not in down_counted and car_id not in up_counted:
       down_counted.add(car_id)
                     cv2.circle(frame, (cx, cy), 5, (0, 0, 255), -1)
@@ -627,29 +628,31 @@ if math.hypot(cx - px, cy - py) < 50:
                                       (cx, cy-10),
                                       cv2.FONT_HERSHEY_SIMPLEX,
                                       0.5,
-                                      (0,255,255),1)**
+                                      (0,255,255),1)*
             
 ***Draw rectangle:***
 
 
-**cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+*cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
             cv2.putText(frame, str(car_id),
                         (x1, y1-5),
                         cv2.FONT_HERSHEY_SIMPLEX,
                         0.4,
-                        (255,255,255),1)**
+                        (255,255,255),1)*
+                        
     
 ***Remove old cars:***
 
 
-**for cid in list(car_tracker.keys()):
+*for cid in list(car_tracker.keys()):
         if cid not in current_cars:
-            del car_tracker[cid]**
+            del car_tracker[cid]*
+
     
   ***Draw lines:***
 
   
-  **cv2.line(frame, (0, red_line_y),
+  *cv2.line(frame, (0, red_line_y),
              (frame.shape[1], red_line_y),
              (0, 0, 255), 2)
     cv2.line(frame, (0, blue_line_y),
@@ -679,7 +682,7 @@ if math.hypot(cx - px, cy - py) < 50:
     if cv2.waitKey(1) & 0xFF == 110:
         break
 cap.release()
-cv2.destroyAllWindows()**
+cv2.destroyAllWindows()*
 
 
 **print(f"\n=== FINAL ===")
@@ -820,28 +823,28 @@ print(f"Total: {len(down_counted) + len(up_counted)}")**
 It only performs tracking, no counting.***
 
 
-***Features:***
+**Features:**
 
 
-**YOLOv8 object detection
+*YOLOv8 object detection
 Custom centroid tracker
 Unique ID for each vehicle
 Bounding boxes with IDs
-Real-time tracking**
+Real-time tracking*
 
 
 ***Code For Exapmle:***
 
 
-**import cv2
+*import cv2
 import math
-from ultralytics import YOLO**
+from ultralytics import YOLO*
 
 
 ***TRACKER CLASS:***
 
 
-**class Tracker:
+*class Tracker:
     def __init__(self):
         self.center_points = {}
         self.id_count = 0
@@ -869,13 +872,13 @@ from ultralytics import YOLO**
             if object_id in self.center_points:
                 new_center_points[object_id] = self.center_points[object_id]
         self.center_points = new_center_points.copy()
-        return objects_bbs_ids**
+        return objects_bbs_ids*
 
         
 ***MAIN CODE:***
 
 
-**model = YOLO('yolov8n.pt')
+*model = YOLO('yolov8n.pt')
 cap = cv2.VideoCapture(r"A:\computer_Vision\2011.mp4")
 tracker = Tracker()
 while True:
@@ -892,13 +895,13 @@ while True:
             y1 = int(y - h/2)
             w = int(w)
             h = int(h)
-            car_boxes.append([x1, y1, w, h])**
+            car_boxes.append([x1, y1, w, h])*
 
 
 ***Get tracking IDs:***
 
 
-**tracked_objects = tracker.update(car_boxes)
+*tracked_objects = tracker.update(car_boxes)
     for obj in tracked_objects:
         x, y, w, h, obj_id = obj
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
@@ -913,7 +916,7 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord('n'):
         break
 cap.release()
-cv2.destroyAllWindows()**
+cv2.destroyAllWindows()*
 
 
 
