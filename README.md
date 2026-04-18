@@ -338,7 +338,7 @@ Final console report*
 
 
 
-### No2) Vehicle Counting and Detecting (Part 2 - YOLOv8).
+## No2) Vehicle Counting and Detecting (Part 2 - YOLOv8).
 
 
 *This project detects and counts vehicles using YOLOv8.
@@ -524,7 +524,7 @@ cv2.destroyAllWindows()*
 
 
 
-#### No3) Tracking and Detecting with Two Lines (YOLOv8).
+## No3) Tracking and Detecting with Two Lines (YOLOv8).
 
 ***This project tracks vehicles using YOLOv8 and counts them using two horizontal lines:***
 
@@ -820,7 +820,7 @@ print(f"Total: {len(down_counted) + len(up_counted)}")**
 
 
 
-##### No4) Vehicle Tracking Only (YOLOv8 + Custom Tracker).
+## No4) Vehicle Tracking Only (YOLOv8 + Custom Tracker).
 
 
 ***This project tracks vehicles using YOLOv8 and assigns a unique ID to each object.
