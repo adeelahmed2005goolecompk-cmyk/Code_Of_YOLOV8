@@ -206,12 +206,10 @@ Final console report**
 ***Example Logic***
 
 
-**LEFT SIDE   |   RIGHT SIDE
+**LEFT SIDE   |   RIGHT SIDE**
 
 
-------------|--------------**
-
-
+------------|--------------
      ←      |      →
      ←      |      →
 
