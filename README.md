@@ -1,4 +1,4 @@
-# Vehicle Detection and Counting (OpenCV).
+# No1) Vehicle Detection and Counting (OpenCV).
 
 
 ***This project detects moving vehicles in a video and counts how many cross a horizontal counting line.
@@ -31,8 +31,8 @@ Split count by direction**
 ***Code For Example:***
 
 
-import cv2
-import numpy as np
+**import cv2
+import numpy as np**
 
 
 **Video**
@@ -89,6 +89,7 @@ print("Processing... Press 'n' to stop")**
   
     
   ***Pink line***
+
     
   **cv2.line(frame, (0, pink_line_y),
              (new_width, pink_line_y),
@@ -98,10 +99,13 @@ print("Processing... Press 'n' to stop")**
                 (10, pink_line_y - 5),
                 cv2.FONT_HERSHEY_SIMPLEX,
                 0.4,
-                pink_color_bgr,
-                1)
-    for contour in contours:
-        area = cv2.contourArea(contour)
+                pink_color_bgr,1)**
+
+                
+***for contour in contours:***
+
+
+**area = cv2.contourArea(contour)
         if 800 < area < 8000:
             x, y, w, h = cv2.boundingRect(contour)
             center_x = x + w // 2
@@ -115,13 +119,16 @@ print("Processing... Press 'n' to stop")**
             cv2.circle(frame,
                        (center_x, center_y),
                        3,
-                       (0, 0, 255),
-                       -1)
-            # Check crossing
-            if abs(center_y - pink_line_y) < 10:
-                if car_id not in crossed_pink:
-                    crossed_pink.add(car_id)
-                    if center_x < new_width // 2:
+                       (0, 0, 255),-1)**
+
+                       
+***Check crossing***
+
+
+**if abs(center_y - pink_line_y) < 10:
+     if car_id not in crossed_pink:
+          crossed_pink.add(car_id)
+              if center_x < new_width // 2:
                         left_count += 1
                     else:
                         right_count += 1
@@ -135,10 +142,13 @@ print("Processing... Press 'n' to stop")**
                                 (center_x - 30, center_y - 15),
                                 cv2.FONT_HERSHEY_SIMPLEX,
                                 0.4,
-                                pink_color_bgr,
-                                1)
-    **Display counts
-    cv2.rectangle(frame, (5, 5), (200, 80), (0, 0, 0), -1)
+                                pink_color_bgr,1)**
+
+                                
+**Display counts**
+
+
+   **cv2.rectangle(frame, (5, 5), (200, 80), (0, 0, 0), -1)
     cv2.rectangle(frame, (5, 5), (200, 80), pink_color_bgr, 1)
     cv2.putText(frame,
                 f"LEFT -> RIGHT: {left_count}",
@@ -168,13 +178,13 @@ cap.release()
 cv2.destroyAllWindows()**
 
 
-**print("\n" + "="*40)
+***print("\n" + "="*40
 print("FINAL REPORT")
 print("="*40)
 print(f"Left to Right: {left_count}")
 print(f"Right to Left: {right_count}")
 print(f"Total Vehicles: {left_count + right_count}")
-print("="*40)**
+print("="*40)*****
 
 
 ***How to Run***
@@ -197,6 +207,8 @@ Final console report**
 
 
 **LEFT SIDE   |   RIGHT SIDE
+
+
 ------------|--------------**
      ←      |      →
      ←      |      →
@@ -322,7 +334,7 @@ Final console report**
 
 
 
-# Vehicle Counting and Detecting (Part 2 - YOLOv8).
+# No2) Vehicle Counting and Detecting (Part 2 - YOLOv8).
 
 
 **This project detects and counts vehicles using YOLOv8.
@@ -348,8 +360,8 @@ from ultralytics import YOLO
 model = YOLO('yolov8n.pt')
 cap = cv2.VideoCapture(r"A:\computer_Vision\2011.mp4")
 LINE_Y = 254
-counted = set()          # already counted cars
-current_crossing = set() # currently crossing cars**
+counted = set()              `counted cars`
+current_crossing = set()**   `currently crossing cars`
 
 
 ***while cap.isOpened():***
@@ -370,6 +382,7 @@ current_crossing = set() # currently crossing cars**
             x, y, w, h = box
             x1, y1 = int(x-w/2), int(y-h/2)
             x2, y2 = int(x+w/2), int(y+h/2)**
+
             
 ***Stable ID:***
 
@@ -379,6 +392,7 @@ current_frame_cars.add(car_id)**
 
 
 ***# Line crossing check:***
+
 
 **if abs(y - LINE_Y) < 15:
   if car_id not in counted:
@@ -431,7 +445,6 @@ cv2.destroyAllWindows()**
 
 
 ```Python Code:
-
 #                 ---COUNTING AND DECTECTING(PRT2)---
 
 
@@ -507,7 +520,7 @@ cv2.destroyAllWindows()**
 
 
 
-# Tracking and Detecting with Two Lines (YOLOv8).
+# No3) Tracking and Detecting with Two Lines (YOLOv8).
 
 ***This project tracks vehicles using YOLOv8 and counts them using two horizontal lines:***
 
@@ -539,6 +552,7 @@ from ultralytics import YOLO
 import math
 model = YOLO('yolov8n.pt')
 cap = cv2.VideoCapture(r"A:\computer_Vision\2011.mp4")**
+
 
 ***Store car positions for tracking***
 
@@ -697,7 +711,8 @@ print(f"Total: {len(down_counted) + len(up_counted)}")**
 # car_tracker = {}
 # next_id = 0
 
-# # Counted cars
+# Counted cars.
+
 # down_counted = set()
 # up_counted = set()
 
@@ -797,7 +812,7 @@ print(f"Total: {len(down_counted) + len(up_counted)}")**
 
 
 
-# Vehicle Tracking Only (YOLOv8 + Custom Tracker).
+# No4) Vehicle Tracking Only (YOLOv8 + Custom Tracker).
 
 
 ***This project tracks vehicles using YOLOv8 and assigns a unique ID to each object.
@@ -914,7 +929,9 @@ cv2.destroyAllWindows()**
 # import math
 # from ultralytics import YOLO
 
-# # ---------- TRACKER CLASS ----------
+# TRACKER CLASS.
+
+
 # class Tracker:
 #     def __init__(self):
 #         self.center_points = {}
@@ -953,7 +970,9 @@ cv2.destroyAllWindows()**
 #         return objects_bbs_ids
 
 
-# # ---------- MAIN CODE ----------
+# MAIN CODE.
+
+
 # model = YOLO('yolov8n.pt')
 # cap = cv2.VideoCapture(r"A:\computer_Vision\2011.mp4")  # Apni video ka path do
 
