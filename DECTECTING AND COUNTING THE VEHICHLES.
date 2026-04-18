@@ -1,0 +1,200 @@
+# Vehicle Detection and Counting (OpenCV).
+
+
+***This project detects moving vehicles in a video and counts how many cross a horizontal counting line.
+It also separates counts into Left → Right and Right → Left.***
+
+
+**Features**
+
+
+**Background subtraction (MOG2)
+Vehicle detection using contours
+Counting line crossing detection
+Direction-based counting
+Live bounding boxes + center points
+Final report after video ends**
+
+
+***How It Works***
+
+
+**Load video using OpenCV
+Apply background subtraction
+Detect contours (moving objects)
+Filter by area (ignore noise)
+Track object center
+Count when crossing pink line
+Split count by direction**
+
+
+***Code For Example:***
+
+
+import cv2
+import numpy as np
+
+
+**Video**
+
+
+cap = cv2.VideoCapture(r"A:\computer_Vision\2009.mp4")
+
+
+**Frame size**
+
+
+**new_width, new_height = 600, 500**
+
+
+**Lines position**
+
+
+**pink_line_y = 250**
+
+
+**Counters**
+
+
+**left_count = 0
+right_count = 0
+crossed_pink = set()
+frame_num = 0**
+
+
+***Background subtractor***
+
+
+**fgbg = cv2.createBackgroundSubtractorMOG2(
+    history=500,
+    varThreshold=50,
+    detectShadows=True
+)
+print("Processing... Press 'n' to stop")
+
+while cap.isOpened():
+    ret, frame = cap.read()
+    if not ret:
+        break   
+    frame = cv2.resize(frame, (new_width, new_height))
+    frame_num += 1
+    fgmask = fgbg.apply(frame)
+    fgmask = cv2.medianBlur(fgmask, 5)
+    contours, _ = cv2.findContours(
+        fgmask,
+        cv2.RETR_EXTERNAL,
+        cv2.CHAIN_APPROX_SIMPLE
+    )
+    pink_color_bgr = (251, 0, 133)
+    # Pink line
+    cv2.line(frame, (0, pink_line_y),
+             (new_width, pink_line_y),
+             pink_color_bgr, 2)
+    cv2.putText(frame,
+                "COUNTING LINE",
+                (10, pink_line_y - 5),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.4,
+                pink_color_bgr,
+                1)
+    for contour in contours:
+        area = cv2.contourArea(contour)
+        if 800 < area < 8000:
+            x, y, w, h = cv2.boundingRect(contour)
+            center_x = x + w // 2
+            center_y = y + h // 2
+            car_id = f"car_{center_x}_{center_y}"
+            cv2.rectangle(frame,
+                          (x, y),
+                          (x+w, y+h),
+                          (0, 255, 0),
+                          2)
+            cv2.circle(frame,
+                       (center_x, center_y),
+                       3,
+                       (0, 0, 255),
+                       -1)
+            # Check crossing
+            if abs(center_y - pink_line_y) < 10:
+                if car_id not in crossed_pink:
+                    crossed_pink.add(car_id)
+                    if center_x < new_width // 2:
+                        left_count += 1
+                    else:
+                        right_count += 1
+                    cv2.circle(frame,
+                               (center_x, center_y),
+                               12,
+                               pink_color_bgr,
+                               2)
+                    cv2.putText(frame,
+                                "COUNTED",
+                                (center_x - 30, center_y - 15),
+                                cv2.FONT_HERSHEY_SIMPLEX,
+                                0.4,
+                                pink_color_bgr,
+                                1)
+    # Display counts
+    cv2.rectangle(frame, (5, 5), (200, 80), (0, 0, 0), -1)
+    cv2.rectangle(frame, (5, 5), (200, 80), pink_color_bgr, 1)
+    cv2.putText(frame,
+                f"LEFT -> RIGHT: {left_count}",
+                (10, 30),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.5,
+                (0, 255, 255),
+                1)
+    cv2.putText(frame,
+                f"RIGHT -> LEFT: {right_count}",
+                (10, 55),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.5,
+                (255, 255, 0),
+                1)
+    cv2.putText(frame,
+                f"TOTAL: {left_count + right_count}",
+                (10, 80),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.5,
+                pink_color_bgr,
+                1)
+    cv2.imshow("Car Detection", frame)
+    if cv2.waitKey(1) & 0xFF == ord('n'):
+        break
+cap.release()
+cv2.destroyAllWindows()**
+
+
+**print("\n" + "="*40)
+print("FINAL REPORT")
+print("="*40)
+print(f"Left to Right: {left_count}")
+print(f"Right to Left: {right_count}")
+print(f"Total Vehicles: {left_count + right_count}")
+print("="*40)**
+
+
+***How to Run***
+
+
+**pip install opencv-python numpy
+python main.py**
+
+
+***Output***
+
+
+**Bounding box around vehicles
+Pink counting line
+Direction based counting
+Final console report**
+
+
+***Example Logic***
+
+
+**LEFT SIDE   |   RIGHT SIDE
+------------|--------------
+     ←      |      →
+     ←      |      →
+Vehicles crossing the line are counted once only.**
