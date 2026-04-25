@@ -30,12 +30,12 @@ performance, it is widely used in applications like surveillance systems, self-d
 # Qno1 what is the yolo?
 
 
-Ans YOLO (You Only Look Once) is a type of deep learning model used in Computer Vision to detect and recognize objects in 
+**Ans** YOLO (You Only Look Once) is a type of deep learning model used in Computer Vision to detect and recognize objects in 
+
 
 images or videos. The key idea behind YOLO is that it looks at an image only once and predicts all the objects in it at the 
 
 same time, making it very fast compared to older methods that analyze images step by step.
-
 
 It works by dividing an image into a grid and predicting bounding boxes, labels (like “car,” “person,” or “dog”), and 
 
@@ -51,7 +51,8 @@ detection.
 # Qno2 What does yolo do?
 
 
-Ans YOLO (You Only Look Once) is a model used in Computer Vision that detects and identifies objects in images or videos.
+**Ans** YOLO (You Only Look Once) is a model used in Computer Vision that detects and identifies objects in images or videos.
+
 
 In simple terms, YOLO looks at a picture and can:
 
@@ -85,13 +86,14 @@ So, in short: YOLO helps machines “see” and understand what’s inside an im
 # Qno3 What is the full form of yolo?
 
 
-**Ans The full form of yolo is: YOU ONLY LOOK ONCE.**
+**Ans** The full form of yolo is: YOU ONLY LOOK ONCE.
 
 
 # Qno4 What is cuda?
 
 
-**Ans CUDA stands for Compute Unified Device Architecture.
+**Ans** CUDA stands for Compute Unified Device Architecture.
+
 
 It’s a parallel computing platform and programming model developed by NVIDIA that lets you use a GPU (graphics card) for general-purpose computing—not just graphics.
 
@@ -156,6 +158,7 @@ If you want, I can show you a simple CUDA code example or how it’s used in Pyt
 
 **Ans “Torch” usually refers to PyTorch, one of the most popular libraries for machine learning and deep learning.
 
+
 What “torch” means
 
 In Python, when you write:
@@ -180,7 +183,8 @@ It helps you:
 # Qno6 What is the ultralytics?
 
 
-**Ans Ultralytics is a company (and also a popular software ecosystem) focused on computer vision AI, especially object detection.
+**Ans** Ultralytics is a company (and also a popular software ecosystem) focused on computer vision AI, especially object detection.
+
 
 What Ultralytics is (simple)
 
@@ -234,7 +238,8 @@ Using Ultralytics, you can build apps like:
 # Qno7 What is nvidia?
 
 
-Ans NVIDIA is a major technology company best known for making graphics processing units (GPUs)—the powerful chips used in gaming, AI, and high-performance computing.
+**Ans** NVIDIA is a major technology company best known for making graphics processing units (GPUs)—the powerful chips used in gaming, AI, and high-performance computing.
+
 
 Simple explanation
 
@@ -310,7 +315,7 @@ Without NVIDIA:
 # Qno8 How to use yolo v8?
 
 
-Ans Using YOLO v8 from Ultralytics is surprisingly simple—you can go from install → detection in just a few steps.
+**Ans** Using YOLO v8 from Ultralytics is surprisingly simple—you can go from install → detection in just a few steps.
 I’ll walk you through the easiest way (Python + command line).
 
 
@@ -431,7 +436,7 @@ Pro tips
 # Qno9 What is the coco dasets?
 
 
-Ans The COCO Dataset (COCO) is one of the most widely used datasets in computer vision—especially for training AI models like YOLO.
+**Ans** The COCO Dataset (COCO) is one of the most widely used datasets in computer vision—especially for training AI models like YOLO.
 
 
 Simple explanation
@@ -521,7 +526,7 @@ Why it’s important
 # Qno10 What is the full form of coco?
 
 
-Ans The full form of COCO Dataset is:
+**Ans** The full form of COCO Dataset is:
 Common Objects in Context
 
 
@@ -551,11 +556,12 @@ COCO shows:
 # Qno11 What is the deep sort?
 
 
-Ans Deep SORT stands for Deep Simple Online and Realtime Tracking. It’s a popular algorithm used in computer vision to 
+**Ans** Deep SORT stands for Deep Simple Online and Realtime Tracking. It’s a popular algorithm used in computer vision to 
 
 track multiple objects across video frames.
 
 It’s often used together with YOLO for detection + tracking.
+
 
 How it works
 
@@ -612,7 +618,8 @@ Use cases
 # Qno12 What is the data.yaml?
 
 
-Ans In the context of YOLOv8 or other machine learning projects, a data.yaml file is a configuration file that tells the model where to find your dataset and what classes you’re training on.
+**Ans** In the context of YOLOv8 or other machine learning projects, a data.yaml file is a configuration file that tells the model where to find your dataset and what classes you’re training on.
+
 
 It’s written in YAML format, which is simple and human-readable.
 
@@ -659,7 +666,8 @@ Explanation:
 # Qno13 Why choose ultralytics yolo for object detection?
 
 
-Ans Choosing YOLO from Ultralytics for object tracking is popular because it makes a usually complex task fast, simple, and reliable.
+**Ans** Choosing YOLO from Ultralytics for object tracking is popular because it makes a usually complex task fast, simple, and reliable.
+
 
 Here’s the real reason people pick it
 
@@ -781,7 +789,9 @@ When you might not choose it
 
 
 # Qno14 What is the bot sort?
-Ans BoT-SORT stands for “Bag of Tricks SORT”. It’s an improved version of the classic tracking algorithm SORT, designed for more accurate multi-object tracking in videos.
+
+
+**Ans** BoT-SORT stands for “Bag of Tricks SORT”. It’s an improved version of the classic tracking algorithm SORT, designed for more accurate multi-object tracking in videos.
 
 It’s often used together with YOLO in systems like Ultralytics YOLOv8.
 
@@ -877,7 +887,9 @@ Use cases
 
 
 # Qno15 What is the byte track?
-Ans Byte Track is a modern multi-object tracking algorithm used in computer vision to track objects (like people, cars, etc.) across video frames.
+
+
+**Ans** Byte Track is a modern multi-object tracking algorithm used in computer vision to track objects (like people, cars, etc.) across video frames.
 
 It’s commonly used with detectors like YOLO, including in Ultralytics YOLOv8.
 
@@ -988,7 +1000,7 @@ yolo track model=yolov8n.pt source=video.mp4 tracker=bytetrack.yaml
 # Qno16 What is the ocr module?
 
 
-Ans An OCR module refers to a software component that performs Optical Character Recognition (OCR)—the process of converting text in images, videos, or scanned documents into machine-readable text.
+**Ans** An OCR module refers to a software component that performs Optical Character Recognition (OCR)—the process of converting text in images, videos, or scanned documents into machine-readable text.
 
 **Simple explanation**
 
@@ -1048,7 +1060,7 @@ Workflow:
 # Qno17 What is the yolov8 pause model?
 
 
-Ans The YOLOv8 Pose model is a version of YOLOv8 that performs human pose estimation — it detects people and predicts body keypoints (joints) in one pass.
+**Ans** The YOLOv8 Pose model is a version of YOLOv8 that performs human pose estimation — it detects people and predicts body keypoints (joints) in one pass.
 
 In simple terms
 
@@ -1146,7 +1158,7 @@ If you tell me:
 # Qno18 How to use ultralytics package with your custom models?
 
 
-Ans Using the Ultralytics package with your custom YOLOv8 model is straightforward — you just load your trained .pt file instead of the default one.
+**Ans** Using the Ultralytics package with your custom YOLOv8 model is straightforward — you just load your trained .pt file instead of the default one.
 
 from ultralytics import YOLO
 
@@ -1227,7 +1239,9 @@ while True:
 
 
 # Qno19 What is the image segmentation?
-Ans An image segmentation model is a computer vision model that labels every pixel in an image, instead of just drawing boxes around objects.
+
+
+**Ans** An image segmentation model is a computer vision model that labels every pixel in an image, instead of just drawing boxes around objects.
 
 With a detection model:
 
@@ -1436,7 +1450,9 @@ best.pt
 last.pt
 
 
-# Qno20 what is called in the center of bounding box in xmin,ymin and xmax,ymax?
+# Qno21 what is called in the center of bounding box in xmin,ymin and xmax,ymax?
+
+
 **Ans** The center of a bounding box (when you have xmin, ymin, xmax, ymax) is called the:
 
 center point or centroid
@@ -1496,7 +1512,7 @@ cy = (ymin + ymax)/2
 This (cx, cy) is what many trackers and YOLO labels use.
 
 
-# Qno21 Who launched the kitty data set and when?
+# Qno22 Who launched the kitty data set and when?
 
 
 **Ans** The KITTI dataset was introduced by Andreas Geiger, Philip Lenz, Christoph Stiller, and Raquel Urtasun. It was released in 2012, with the main paper later published online on August 23, 2013 describing the dataset and benchmarks for autonomous driving research. 
@@ -1514,7 +1530,7 @@ Short answer:
 If you meant KITTI-360, KITTI tracking, or KITTI object detection, tell me — those have slightly different release years.
 
 
-# Qno22 What is the difference between 2d data set and 3d data set?
+# Qno23 What is the difference between 2d data set and 3d data set?
 
 
 **Ans** The difference comes down to how much spatial information the data contains.
@@ -1606,7 +1622,7 @@ Use case	image detection	autonomous driving, robotics
 Complexity	Easy	Hard
 
 
-# Qno23  What is the fleet management?
+# Qno24  What is the fleet management?
 
 
 **Ans** Fleet management is the process of tracking, controlling, and optimizing a company’s vehicles — like cars, trucks, vans, bikes, or buses — so they run efficiently, safely, and at lower cost.
@@ -1684,7 +1700,8 @@ If you tell me:
 …I can explain fleet management specifically for that.
 
 
-# Qno24 What is the tensorRT?
+# Qno25 What is the tensorRT?
+
 
 **Ans** NVIDIA TensorRT is a high-performance AI inference engine made by NVIDIA. It’s used to run trained deep-learning 
 
@@ -1837,7 +1854,7 @@ If you're working with:
 I can show how OBB works in that context.
 
 
-# Qno26 What is the yolo v8n-obb.pt?
+# Qno27 What is the yolo v8n-obb.pt?
 
 
 **Ans** yolov8n-obb.pt is a pretrained model file for YOLOv8 Nano that detects objects using oriented bounding boxes (OBB) 
@@ -1915,7 +1932,7 @@ Other OBB YOLOv8 models
 •	yolov8x-obb.pt → best accuracy, slowest
 
 
-# Qno27 What is the DOTA dataset?
+# Qno28 What is the DOTA dataset?
 
 
 **Ans** The DOTA database usually refers to the DOTA Dataset, a large benchmark dataset used for object detection in 
@@ -2018,7 +2035,7 @@ If you're using:
 •	satellite detection 
 
 
-# Qno28 How to train and test model for OBB tasks?
+# Qno29 How to train and test model for OBB tasks?
 
 
 **Ans** To train and test a model for OBB (Oriented Bounding Box) tasks, you typically use an OBB-capable detector like 
@@ -2158,7 +2175,7 @@ Full pipeline summary
 5.	Test using yolo obb predict
 
 
-# Qno29 What things detect the DOTA dataset?
+# Qno30 What things detect the DOTA dataset?
 
 
 **Ans** The DOTA Dataset is designed to detect objects in aerial / satellite images, usually with rotated (OBB) bounding boxes.
@@ -2242,7 +2259,7 @@ Objects in DOTA are:
 That’s why OBB models (like yolov8n-obb.pt) are used.
 
 
-# Qno30 Why we use the same data sets?
+# Qno31 Why we use the same data sets?
 
 
 **Ans**  We use the same dataset (like the DOTA Dataset) for training, validation, and testing splits because the model must learn and be evaluated on consistent data distribution — but importantly, not the same images.
@@ -2419,95 +2436,124 @@ print("Processing... Press 'n' to stop")
 
    ret, frame = cap.read()
     if not ret:
-        break   
-    frame = cv2.resize(frame, (new_width, new_height))
-    frame_num += 1
-    fgmask = fgbg.apply(frame)
-    fgmask = cv2.medianBlur(fgmask, 5)
-    contours, _ = cv2.findContours(
-        fgmask,
-        cv2.RETR_EXTERNAL,
-        cv2.CHAIN_APPROX_SIMPLE
-    )
-    pink_color_bgr = (251, 0, 133)
+        break
+        
+   frame = cv2.resize(frame, (new_width, new_height))
+   
+   frame_num += 1
+
+   fgmask = fgbg.apply(frame)
+   
+   fgmask = cv2.medianBlur(fgmask, 5)
+   
+   contours, _ = cv2.findContours(
+    
+   fgmask,
+        
+   cv2.RETR_EXTERNAL,
+        
+   cv2.CHAIN_APPROX_SIMPLE
+   
+   )
+  
+   pink_color_bgr = (251, 0, 133)
   
     
   ***Pink line***
 
     
-  *cv2.line(frame, (0, pink_line_y),
-             (new_width, pink_line_y),
-             pink_color_bgr, 2)
-    cv2.putText(frame,
-                "COUNTING LINE",
-                (10, pink_line_y - 5),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.4,
-                pink_color_bgr,1)*
+  *cv2.line(frame, (0, pink_line_y),(new_width, pink_line_y),pink_color_bgr, 2)
+   
+   cv2.putText(frame,"COUNTING LINE",(10, pink_line_y - 5),
+   
+   cv2.FONT_HERSHEY_SIMPLEX,0.4,pink_color_bgr,1)*
 
                 
 ***for contour in contours:***
 
 
-*area = cv2.contourArea(contour)
+area = cv2.contourArea(contour)
         if 800 < area < 8000:
-            x, y, w, h = cv2.boundingRect(contour)
-            center_x = x + w // 2
-            center_y = y + h // 2
-            car_id = f"car_{center_x}_{center_y}"
-            cv2.rectangle(frame,
-                          (x, y),
-                          (x+w, y+h),
-                          (0, 255, 0),
-                          2)
-            cv2.circle(frame,
-                       (center_x, center_y),
-                       3,
-                       (0, 0, 255),-1)*
+            
+x, y, w, h = cv2.boundingRect(contour)
+            
+center_x = x + w // 2
+            
+center_y = y + h // 2
+            
+car_id = f"car_{center_x}_{center_y}"
+            
+cv2.rectangle(frame,
+            
+(x, y),
+
+(x+w, y+h),
+                          
+(0, 255, 0),2)
+                          
+cv2.circle(frame,
+
+(center_x, center_y),3,(0, 0, 255),-1)
 
                        
 ***Check crossing***
 
 
-*if abs(center_y - pink_line_y) < 10:
-     if car_id not in crossed_pink:
-          crossed_pink.add(car_id)
-              if center_x < new_width // 2:
-                        left_count += 1
-                    else:
-                        right_count += 1
-                    cv2.circle(frame,
-                               (center_x, center_y),
-                               12,
-                               pink_color_bgr,
-                               2)
-                    cv2.putText(frame,
-                                "COUNTED",
-                                (center_x - 30, center_y - 15),
-                                cv2.FONT_HERSHEY_SIMPLEX,
-                                0.4,
-                                pink_color_bgr,1)*
+if abs(center_y - pink_line_y) < 10:
+
+   if car_id not in crossed_pink:
+     
+   crossed_pink.add(car_id)
+          
+   if center_x < new_width // 2:
+              
+   left_count += 1
+                    
+   else:
+                    
+   right_count += 1
+                    
+   cv2.circle(frame,(center_x, center_y),12,
+                               
+   pink_color_bgr,2)
+                               
+   cv2.putText(frame,
+                              
+   "COUNTED",
+                                
+   (center_x - 30, center_y - 15),
+                                
+   cv2.FONT_HERSHEY_SIMPLEX,0.4,
+   
+   pink_color_bgr,1)*
 
                                 
 **Display counts**
 
 
    cv2.rectangle(frame, (5, 5), (200, 80), (0, 0, 0), -1)
-    cv2.rectangle(frame, (5, 5), (200, 80), pink_color_bgr, 1)
-    cv2.putText(frame,f"LEFT -> RIGHT: {left_count}",(10, 30),
-                cv2.FONT_HERSHEY_SIMPLEX,0.5,(0, 255, 255),1)
+    
+   cv2.rectangle(frame, (5, 5), (200, 80), pink_color_bgr, 1)
+    
+   cv2.putText(frame,f"LEFT -> RIGHT: {left_count}",(10, 30),
+    
+   cv2.FONT_HERSHEY_SIMPLEX,0.5,(0, 255, 255),1)
                 
    cv2.putText(frame,f"RIGHT -> LEFT: {right_count}",(10, 55),
-                cv2.FONT_HERSHEY_SIMPLEX,0.5,(255, 255, 0),1)
+   
+   cv2.FONT_HERSHEY_SIMPLEX,0.5,(255, 255, 0),1)
                 
    cv2.putText(frame,f"TOTAL: {left_count + right_count}",(10, 80),
-                cv2.FONT_HERSHEY_SIMPLEX,0.5,pink_color_bgr,1)
+   
+   cv2.FONT_HERSHEY_SIMPLEX,0.5,pink_color_bgr,1)
                 
    cv2.imshow("Car Detection", frame)
-    if cv2.waitKey(1) & 0xFF == ord('n'):
+   
+   if cv2.waitKey(1) & 0xFF == ord('n'):
         break
 
 cap.release()
+
 cv2.destroyAllWindows()*
 
 
