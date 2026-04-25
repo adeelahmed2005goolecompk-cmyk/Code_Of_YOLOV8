@@ -1766,7 +1766,7 @@ So:
 •	Deployment (fast) = TensorRT
 
 
-# Qno25 What are the oriented bounding boxes?
+# Qno26 What are the oriented bounding boxes?
 
 **Ans** Oriented Bounding Boxes (OBB) are bounding boxes that can rotate to match the angle of an object, instead of staying 
 
